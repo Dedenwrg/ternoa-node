@@ -77,7 +77,7 @@ sudo tee /etc/systemd/system/ternoa.service > /dev/null <<EOT
 Description=Ternoa Validator Node By Ternoa.com
 
 [Service]
-ExecStart=/usr/bin/ternoa --name ${validator_name} --chain ${TERNOA_ENV} --base-path /opt/ternoa/node-data --ws-max-connections 1000 --prometheus-port 9615 --validator --telemetry-url "wss://telemetry.polkadot.io/submit/ 0" --state-pruning archive
+ExecStart=/usr/bin/ternoa --name ${validator_name} --chain ${TERNOA_ENV} --base-path /opt/ternoa/node-data --ws-max-connections 1000  --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0' --ws-external --rpc-external --rpc-cors all --rpc-methods=Safe --state-pruning archive
 WorkingDirectory=/usr/bin
 KillSignal=SIGINT
 Restart=on-failure
